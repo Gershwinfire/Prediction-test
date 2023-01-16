@@ -59,15 +59,15 @@ const bollingerBands = calculateBollingerBands(data.c, 14);
 const slopeEma = (ema - data.c[data.c.length - 1])/30;
 const slopeRsi = (rsi - calculateRSI(data.c, data.c.length - 1))/14;
 // Make prediction based on the calculated values
-if (rsi > 50 && slopeRsi > 0 && slopeEma > 0 && ema > data.c[data.c.length-1] && ema > bollingerBands.upperBand) {
-    console.log("Next 30min wick is likely to be red");
-    } else if (rsi < 40 && slopeRsi < 0 && slopeEma < 0 && ema < data.c[data.c.length - 1] && ema < bollingerBands.lowerBand) {
-    console.log("Next 30min wick is likely to be green");
-    } else {
-    console.log("Unable to predict next 30min wick");
-    }
-    } catch (error) {
-    console.log(error);
-    }
-    }
-    predict();
+if (rsi > 50 && slopeRsi > 0 && slopeEma > 0 && ema > data.c[data.c.length - 1]) {
+console.log("Next 30min wick is likely to be red");
+} else if (rsi < 40 && slopeRsi < 0 && slopeEma < 0 && ema < data.c[data.c.length - 1]) {
+console.log("Next 30min wick is likely to be green");
+} else {
+console.log("Risk: Next 30min wick is uncertain");
+}
+} catch (error) {
+console.log(error);
+}
+}
+predict();
