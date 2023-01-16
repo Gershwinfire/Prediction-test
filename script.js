@@ -44,7 +44,7 @@ return {upperBand, lowerBand};
 const predict = async () => {
 try {
 // Fetch historical data from the API
-const response = await axios.get("https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:BTCUSDT&resolution=30&count=24&token=cf2c4u2ad3idqn4q5ba0cf2c4u2ad3idqn4q5bag");
+const response = await axios.get("https://finnhub.io/api/v1/crypto/candle?symbol=BINANCE:BTCUSDT&resolution=300&count=24&token=cf2c4u2ad3idqn4q5ba0cf2c4u2ad3idqn4q5bag");
 // check if the response data is in the expected format
 if (!response.data || !response.data.c) {
 console.log("Unexpected data format received from the API")
